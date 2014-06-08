@@ -1,0 +1,76 @@
+
+h1 {
+	display:block;
+	font-size:5em;
+	font-weight:900;
+	height:25px;
+	margin: 15% auto 0;
+	text-align: center;
+	width:175px;
+}
+
+h2 {
+	display:block;
+	font-size:1em;
+	font-weight:900;
+	height:35px;
+	margin: 2% auto 0;
+	text-align: center;
+	width:280px;
+	background:#FFF;
+}
+
+form {
+	width:335px;
+	height:550px;
+	margin:0 auto;
+	left:-150px;
+	border: 1px solid black;
+	border-radius:10px;
+	background-image:url(../img/carrin.jpg);
+}
+
+form strong {
+	color: #00F5FF;
+	font-weight:900;
+}
+
+form p {
+	display:block;
+	margin: 5% auto;
+	text-align: center;
+	width:210px;
+}
+
+form .link {
+	display:block;
+	height:40px;
+	margin: 5% auto 0;
+	text-align: center;
+	width:200px;
+}
+
+ .btn_tela_inicial {
+	clear:both;
+	width:85%;
+	margin-bottom:10px;
+ }
+ 
+ #usuario {
+	margin-bottom:20px;
+ }
+ 
+ #div-produtos {
+	width:210px;
+	margin:0 auto;
+	height:190px;
+ }
+ 
+ #div-botoes {
+	clear:both;
+	width:335px;
+	position:absolute;
+	bottom:40px;
+	text-align:center;
+ }
+ 

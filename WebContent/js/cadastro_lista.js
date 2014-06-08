@@ -1,0 +1,5 @@
+$(function() {
+	
+	$('#descricao').focus();
+	
+});
