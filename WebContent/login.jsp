@@ -1,5 +1,16 @@
+<%@page import="br.com.senac.mol.models.MensagensSessao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!doctype html>
+
+<%
+	HttpSession sessao = request.getSession();
+	MensagensSessao mensagens = (MensagensSessao) sessao.getAttribute("m");
+	String erro = "&nbsp;";
+	if (mensagens != null) {
+		if (mensagens.get("erro") != null)
+			erro = mensagens.pop("erro");
+	}
+%>
 
 <html>
 <head>
@@ -22,7 +33,7 @@
 		<input id="txtEmail" name="txtEmail" type="text" value="" placeholder="Email" />
 		<input id="txtSenha" name="txtSenha" type="password" value="" placeholder="Senha" />
 	</p>
-	<br />
+	<div style="text-align: center;"><%=erro%></div>
 	<p>
 		<a id="btnLogin" class="btn btn-primary btn_tela_inicial">Login</a><br />
 		<br />

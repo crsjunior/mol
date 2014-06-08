@@ -4,14 +4,22 @@
 <!doctype html>
 
 <%
+	// forca a criacao da base de dados caso ela ainda nao exista:
 	DAO dao = new DAO();
 	dao.getEntityManager();
+
+	// variaveis:
 	HttpSession sessao = request.getSession();
-	boolean erro = request.getParameter("erro") != null;
+	String caminho = request.getContextPath();
 	boolean logoff = request.getParameter("logoff") != null;
-	if (logoff)
+
+	// mensagens:
+	if (logoff) {
 		sessao.invalidate();
-	
+		response.sendRedirect(caminho + "/login.jsp");
+		return;
+	}
+
 	Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 	if (usuario == null) {
 		response.sendRedirect(request.getContextPath() + "/login.jsp");
@@ -43,7 +51,7 @@
 		<a id="exibir_produtos" href="#self" class="btn btn-primary btn_tela_inicial">Exibir Produtos</a>
 		<a id="novo_produto" href="cadastro_estabelecimento.html" class="btn btn-primary btn_tela_inicial">Novo Estabelecimento</a>
 		<a id="exibir_produtos" href="#self" class="btn btn-primary btn_tela_inicial">Exibir Estabelecimentos</a>				
-		<a href="index.html" class="btn btn_tela_inicial">Sair</a>
+		<a href="<%=caminho%>/index.jsp?logoff" class="btn btn_tela_inicial">Sair</a>
 	</p>
 </form>
 
