@@ -3,12 +3,16 @@
 <!doctype html>
 
 <%
+	// variaveis:
 	HttpSession sessao = request.getSession();
-	MensagensSessao mensagens = (MensagensSessao) sessao.getAttribute("m");
-	String erro = "&nbsp;";
+	MensagensSessao mensagens = (MensagensSessao) sessao.getAttribute("mensagens");
+	String status = "&nbsp;";
+
+	// mensagens:
 	if (mensagens != null) {
+		// algum erro no login?
 		if (mensagens.get("erro") != null)
-			erro = mensagens.pop("erro");
+			status = mensagens.pop("erro");
 	}
 %>
 
@@ -33,7 +37,7 @@
 		<input id="txtEmail" name="txtEmail" type="text" value="" placeholder="Email" />
 		<input id="txtSenha" name="txtSenha" type="password" value="" placeholder="Senha" />
 	</p>
-	<div style="text-align: center;"><%=erro%></div>
+	<div id="status" style="text-align: center;"><%=status%></div>
 	<p>
 		<a id="btnLogin" class="btn btn-primary btn_tela_inicial">Login</a><br />
 		<br />

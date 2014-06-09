@@ -34,17 +34,17 @@ public class LoginServlet extends HttpServlet
 		String txtSenha = request.getParameter("txtSenha");
 
 		UsuarioDAO dao = new UsuarioDAO();
-		Usuario u = dao.getByEmailSenha(txtEmail, txtSenha);
+		Usuario usuario = dao.getByEmailSenha(txtEmail, txtSenha);
 
 		HttpSession sessao = request.getSession();
 		MensagensSessao mensagens = new MensagensSessao();
-		sessao.setAttribute("m", mensagens);
+		sessao.setAttribute("mensagens", mensagens);
 
-		if (u == null) {
-			mensagens.add("erro", "Informações inválidas!");
+		if (usuario == null) {
+			mensagens.add("erro", "Não foi possível efetuar seu login!<br />Email ou senha incorreto(s)");
 			response.sendRedirect(request.getContextPath() + "/login.jsp");
 		} else {
-			sessao.setAttribute("usuario", u);
+			sessao.setAttribute("usuario", usuario);
 			response.sendRedirect(request.getContextPath() + "/index.jsp");
 		}
 	}

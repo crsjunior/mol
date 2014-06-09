@@ -8,9 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.senac.mol.entidades.Usuario;
 import br.com.senac.mol.models.Constantes;
+import br.com.senac.mol.models.MensagensSessao;
 import br.com.senac.mol.persistencia.UsuarioDAO;
 
 @WebServlet("/CadastroUsuarioServlet")
@@ -34,11 +36,30 @@ public class CadastroUsuarioServlet extends HttpServlet
 		String txtSenha = request.getParameter("txtSenha");
 		String txtSenhaConfirma = request.getParameter("txtSenhaConfirma");
 		
-		boolean tudoOk = (txtNome.length() > 2 && txtEmail.matches(Constantes.REGEX_EMAIL) &&
-				txtSenha.length() > 5 && txtSenha.equals(txtSenhaConfirma));
+		HttpSession sessao = request.getSession();
+		MensagensSessao mensagens = new MensagensSessao();
+		sessao.setAttribute("mensagens", mensagens);
 		
-		if (!tudoOk) {
-			response.sendRedirect(request.getContextPath() + "/cadastro_usuario.jsp?erro");
+		// verificando entradas do usuario:
+		boolean ok = true;
+		if (txtNome.length() < 3) { // nome com no minimo de 3 caracteres.
+			ok = false;
+			mensagens.add("erro", "Nome deve ter 3 ou mais caracteres");
+		} else if (!txtEmail.matches(Constantes.REGEX_EMAIL)) { // email com formato valido.
+			ok = false;
+			mensagens.add("erro", "Email inválido");
+		} else if (txtSenha.length() < 6) { // senha com no minimo 6 caracteres.
+			ok = false;
+			mensagens.add("erro", "Senha deve ter 6 ou mais caracteres");
+		} else if (!txtSenha.equals(txtSenhaConfirma)) { // senha e confirmacao da senha iguais.
+			ok = false;
+			mensagens.add("erro", "Confirmação incorreta de senha");
+		}
+		
+		if (!ok) {
+			mensagens.add("nome", txtNome);
+			mensagens.add("email", txtEmail);
+			response.sendRedirect(request.getContextPath() + "/cadastro_usuario.jsp");
 			return;
 		}
 		
