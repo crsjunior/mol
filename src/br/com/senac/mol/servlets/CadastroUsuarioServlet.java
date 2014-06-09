@@ -35,11 +35,11 @@ public class CadastroUsuarioServlet extends HttpServlet
 		String txtEmail = request.getParameter("txtEmail");
 		String txtSenha = request.getParameter("txtSenha");
 		String txtSenhaConfirma = request.getParameter("txtSenhaConfirma");
-		
+
 		HttpSession sessao = request.getSession();
 		MensagensSessao mensagens = new MensagensSessao();
 		sessao.setAttribute("mensagens", mensagens);
-		
+
 		// verificando entradas do usuario:
 		boolean ok = true;
 		if (txtNome.length() < 3) { // nome com no minimo de 3 caracteres.
@@ -55,24 +55,24 @@ public class CadastroUsuarioServlet extends HttpServlet
 			ok = false;
 			mensagens.add("erro", "Confirmação incorreta de senha");
 		}
-		
+
 		if (!ok) {
 			mensagens.add("nome", txtNome);
 			mensagens.add("email", txtEmail);
 			response.sendRedirect(request.getContextPath() + "/cadastro_usuario.jsp");
 			return;
 		}
-		
+
 		Usuario usuario = new Usuario();
 		usuario.setNome(txtNome);
 		usuario.setEmail(txtEmail);
 		usuario.setSenha(txtSenha);
 		usuario.setDataCadastro(new Date());
 		usuario.setAtivo((short) 1);
-		
+
 		UsuarioDAO dao = new UsuarioDAO();
 		dao.insert(usuario);
-		
+
 		response.sendRedirect(request.getContextPath() + "/login.jsp");
 	}
 }

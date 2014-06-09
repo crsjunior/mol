@@ -1,5 +1,6 @@
 package br.com.senac.mol.entidades;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -27,6 +28,9 @@ public class Produto
 
 	@Column(name = "resenha", length = 255)
 	private String resenha;
+
+	@Column(name = "preco", precision = 15, scale = 2)
+	private BigDecimal preco;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "data_cadastro")
@@ -64,6 +68,16 @@ public class Produto
 	public void setResenha(String resenha)
 	{
 		this.resenha = resenha;
+	}
+
+	public BigDecimal getPreco()
+	{
+		return preco;
+	}
+
+	public void setPreco(BigDecimal preco)
+	{
+		this.preco = preco;
 	}
 
 	public Date getDataCadastro()

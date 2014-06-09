@@ -75,7 +75,20 @@ form .link {
  }
  
  div#status {
+ 	position: relative;
+ 	margin: -10px auto;
+ 	top: -5px;
+ 	width: 90%;
  	font-size: 0.7em;
- 	height: 40px;
+ 	font-weight: bold;
+ 	/*height: 30px;*/
+ 	text-align: center;
+ 	/*background-color: red;*/
+ }
+ div#status.verde {
+ 	color: #31D665;
+ }
+ div#status.vermelho {
+ 	color: #D63131;
  }
  

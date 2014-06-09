@@ -47,7 +47,7 @@
 	<p>
 		<a id="nova_lista" href="cadastro_lista.html" class="btn btn-primary btn_tela_inicial">Nova Lista</a>
 		<a id="exibir_lista" href="#self" class="btn btn-primary btn_tela_inicial">Exibir Listas</a>
-		<a id="novo_produto" href="cadastro_produto.html" class="btn btn-primary btn_tela_inicial">Novo Produto</a>
+		<a id="novo_produto" href="<%=caminho%>/cadastro_produto.jsp" class="btn btn-primary btn_tela_inicial">Novo Produto</a>
 		<a id="exibir_produtos" href="#self" class="btn btn-primary btn_tela_inicial">Exibir Produtos</a>
 		<a id="novo_produto" href="cadastro_estabelecimento.html" class="btn btn-primary btn_tela_inicial">Novo Estabelecimento</a>
 		<a id="exibir_produtos" href="#self" class="btn btn-primary btn_tela_inicial">Exibir Estabelecimentos</a>				
