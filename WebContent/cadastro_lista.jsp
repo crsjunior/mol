@@ -34,24 +34,25 @@
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap-responsive.css">
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/js/cadastro_produto.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/js/cadastro_lista.js"></script>
 </head>
 
 <body>
 
-<form id="formCadastroProduto" name="formCadastroProduto" action="CadastroProdutoServlet" method="post">
+<form id="formCadastroLista" name="formCadastroLista" action="CadastroListaServlet" method="post">
 	<h1><strong>M</strong>OL</h1>
 	<br />
-	<h2>Cadastro de Produto</h2>
+	<h2>Cadastro de Lista</h2>
 	<p>
 		<input id="txtDescricao" name="txtDescricao" type="text" value="<%=descricao%>" placeholder="Descrição" />
-		<textarea id="txtResenha" name="txtResenha" rows="4" placeholder="Resenha"><%=resenha%></textarea>
-		<input id="txtPreco" name="txtPreco" type="text" value="<%=preco%>" placeholder="Preço">
-		<a class="btn btn-primary btn_tela_inicial">Adicionar Imagem</a>
 	</p>
+	<div id="div-produtos">
+		
+	</div>
 	<div id="status" class="<%=statusClass%>"><%=status%></div>
 	<p>
-		<a id="btnCadastrar" class="btn btn-primary btn_tela_inicial">Salvar</a>
+		<a id="btnAdicionarProdutos" class="btn btn-primary btn_tela_inicial">Adicionar produtos</a>
+		<a id="btnCadastrar" class="btn btn-primary btn_tela_inicial">Cadastrar Lista</a>
 		<a href="<%=caminho%>/index.jsp" class="btn btn_tela_inicial">Cancelar</a>
 	</p>
 </form>
