@@ -25,7 +25,6 @@ public class LoginServlet extends HttpServlet
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
@@ -42,6 +41,7 @@ public class LoginServlet extends HttpServlet
 
 		if (usuario == null) {
 			mensagens.add("erro", "Não foi possível efetuar seu login!<br />Email ou senha incorreto(s)");
+			mensagens.add("email", txtEmail);
 			response.sendRedirect(request.getContextPath() + "/login.jsp");
 		} else {
 			sessao.setAttribute("usuario", usuario);
