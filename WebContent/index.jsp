@@ -20,6 +20,7 @@
 		return;
 	}
 
+	// verificando se o usuario esta logado, caso contrario, redireciona para o login:
 	Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 	if (usuario == null) {
 		response.sendRedirect(request.getContextPath() + "/login.jsp");

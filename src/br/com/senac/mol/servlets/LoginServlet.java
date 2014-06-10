@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet
 		sessao.setAttribute("mensagens", mensagens);
 
 		if (usuario == null) {
-			mensagens.add("erro", "Não foi possível efetuar seu login!<br />Email ou senha incorreto(s)");
+			mensagens.add("erro", "Email ou senha incorreto(s)");
 			mensagens.add("email", txtEmail);
 			response.sendRedirect(request.getContextPath() + "/login.jsp");
 		} else {

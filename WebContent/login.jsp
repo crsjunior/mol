@@ -7,6 +7,7 @@
 	HttpSession sessao = request.getSession();
 	MensagensSessao mensagens = (MensagensSessao) sessao.getAttribute("mensagens");
 	String status = "&nbsp;";
+	String statusClass = "";
 	String email = "";
 
 	// mensagens:
@@ -14,6 +15,7 @@
 		// algum erro no login?
 		if (mensagens.get("erro") != null) {
 			status = mensagens.pop("erro");
+			statusClass = "vermelho";
 			email = mensagens.pop("email");
 		}
 	}
@@ -40,7 +42,7 @@
 		<input id="txtEmail" name="txtEmail" type="text" value="<%=email%>" placeholder="Email" />
 		<input id="txtSenha" name="txtSenha" type="password" value="" placeholder="Senha" />
 	</p>
-	<div id="status" style="text-align: center;"><%=status%></div>
+	<div id="status" class="<%=statusClass%>"><%=status%></div>
 	<p>
 		<a id="btnLogin" class="btn btn-primary btn_tela_inicial">Login</a><br />
 		<br />
