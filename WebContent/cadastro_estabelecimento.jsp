@@ -35,13 +35,14 @@
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.js"></script>
 	<script type="text/javascript">
-	$(function()
-	{
-		$('#txtNome').focus();
-		$('#btnCadastrar').click(function() {
-			$('#formCadastroEstabelecimento').submit();
+		$(function()
+		{
+			$('#txtNome').focus();
+			$('#btnCadastrar').click(function()
+			{
+				$('#formCadastroEstabelecimento').submit();
+			});
 		});
-	});
 	</script>
 </head>
 

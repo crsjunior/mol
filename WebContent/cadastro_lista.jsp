@@ -34,7 +34,16 @@
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap-responsive.css">
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/js/cadastro_lista.js"></script>
+	<script type="text/javascript">
+		$(function()
+		{
+			$('#txtDescricao').focus();
+			$('#btnCadastrar').click(function()
+			{
+				$('#formCadastroLista').submit();
+			});
+		});
+	</script>
 </head>
 
 <body>
