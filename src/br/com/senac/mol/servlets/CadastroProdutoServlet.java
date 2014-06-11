@@ -75,6 +75,7 @@ public class CadastroProdutoServlet extends HttpServlet
 		produto.setResenha(resenha);
 		produto.setPreco(preco);
 		produto.setDataCadastro(new Date());
+		produto.setDataUltimaAtualizacao(new Date());
 		produto.setUsuario(usuario);
 
 		ProdutoDAO dao = new ProdutoDAO();

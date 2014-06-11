@@ -36,6 +36,10 @@ public class Produto
 	@Column(name = "data_cadastro")
 	private Date dataCadastro;
 
+	@Temporal(TemporalType.DATE)
+	@Column(name = "data_ultima_atualizacao")
+	private Date dataUltimaAtualizacao;
+
 	@ManyToOne
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
@@ -88,6 +92,16 @@ public class Produto
 	public void setDataCadastro(Date dataCadastro)
 	{
 		this.dataCadastro = dataCadastro;
+	}
+
+	public Date getDataUltimaAtualizacao()
+	{
+		return dataUltimaAtualizacao;
+	}
+
+	public void setDataUltimaAtualizacao(Date dataUltimaAtualizacao)
+	{
+		this.dataUltimaAtualizacao = dataUltimaAtualizacao;
 	}
 
 	public Usuario getUsuario()
