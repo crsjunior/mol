@@ -58,7 +58,7 @@ public class CadastroProdutoServlet extends HttpServlet
 			erro = "Descrição deve ter 3 ou mais caracteres";
 		} else if (!precoOk) {
 			ok = false;
-			erro = "Valor para o preço inválido";
+			erro = "Valor para o preço invalido";
 		}
 
 		if (!ok) {
