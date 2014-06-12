@@ -40,7 +40,7 @@
 
     <body>
 
-        <form id="formCadastroProduto" name="formCadastroProduto" action="CadastroProdutoServlet" method="post">
+        <form id="formCadastroProduto" name="formCadastroProduto" action="CadastroProdutoServlet" enctype="multipart/form-data" method="post">
             <h1><strong>M</strong>OL</h1>
             <br />
             <h2>Cadastro de Produto</h2>
