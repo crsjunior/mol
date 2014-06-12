@@ -213,6 +213,7 @@ function checkTipo(id)
 		switch (tipo) {
 		case "int": { return isInt(ele.value); break; }
 		case "float": { return isFloat(ele.value); break; }
+		case "dinheiro": { return isDinheiro(ele.value); break; }
 		case "date": { return isDate(ele.value); break; }
 		case "email": { return isEmail(ele.value); break; }
 		case "fone": { return isPhoneNumber_international(ele.value); break; }
@@ -315,6 +316,11 @@ var isInt = function(valor)
 var isFloat = function(valor)
 {
 	return (/^\-?([0-9]+(\.[0-9]+)?)$/.test(valor));
+};
+
+var isDinheiro = function(valor)
+{
+	return (/^\-?([0-9]+(\,[0-9][0-9])?)$/.test(valor));
 };
 
 /**
