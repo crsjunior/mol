@@ -27,7 +27,7 @@ form {
 	left:-150px;
 	border: 1px solid black;
 	border-radius:10px;
-        background-image:url(../img/carrin.jpg);
+	background-image:url(../img/carrin.jpg);
 }
 
 form strong {
@@ -92,7 +92,11 @@ form .link {
  	color: #D63131;
  }
  
- 
  .div-arq {
-     display:none;
+ 	display: none;
+ }
+ 
+ 
+ #txtResenha {
+ 	height: auto;
  }

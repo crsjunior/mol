@@ -47,13 +47,13 @@ public class CadastroUsuarioServlet extends HttpServlet
 			mensagens.add("erro", "Nome deve ter 3 ou mais caracteres");
 		} else if (!txtEmail.matches(Constantes.REGEX_EMAIL)) { // email com formato valido.
 			ok = false;
-			mensagens.add("erro", "Email inv·lido");
+			mensagens.add("erro", "Email inv√°lido");
 		} else if (txtSenha.length() < 6) { // senha com no minimo 6 caracteres.
 			ok = false;
 			mensagens.add("erro", "Senha deve ter 6 ou mais caracteres");
 		} else if (!txtSenha.equals(txtSenhaConfirma)) { // senha e confirmacao da senha iguais.
 			ok = false;
-			mensagens.add("erro", "ConfirmaÁ„o incorreta de senha");
+			mensagens.add("erro", "Confirma√ß√£o incorreta de senha");
 		}
 
 		if (!ok) {

@@ -6,6 +6,7 @@
 	// variaveis:
 	HttpSession sessao = request.getSession();
 	MensagensSessao mensagens = (MensagensSessao) sessao.getAttribute("mensagens");
+	String caminho = request.getContextPath();
 	String status = "&nbsp;";
 	String nome = "";
 	String email = "";
@@ -25,11 +26,18 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>MOL</title>
-	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.css">
-	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap-responsive.css">
-	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
-	<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/js/cadastro.js"></script>
+	<link rel="stylesheet" href="<%=caminho%>/css/bootstrap.css">
+	<link rel="stylesheet" href="<%=caminho%>/css/bootstrap-responsive.css">
+	<link rel="stylesheet" href="<%=caminho%>/css/style.css">
+	<script type="text/javascript" src="<%=caminho%>/js/jquery.js"></script>
+	<!-- <script type="text/javascript" src="<%=caminho%>/js/cadastro.js"></script> -->
+	<script type="text/javascript">
+		var formCampos = {
+				'txtNome': false, 'txtEmail': false, 'txtSenha': false, 'txtSenhaConfirma': false
+		};
+		var formNome = 'formCadastroUsuario';
+	</script>
+	<script type="text/javascript" src="<%=caminho%>/js/formUtil.js"></script>
 </head>
 
 <body>
@@ -46,11 +54,9 @@
 	</p>
 	<div id="status" style="text-align: center;"><%=status%></div>
 	<p>
-		<!-- <input id="submit" name="submit" type="submit" class="btn btn-primary btn_tela_inicial" value="Enviar"><br /> -->
-		<a id="btnCadastrar" class="btn btn-primary btn_tela_inicial">Enviar</a><br />
-		<!-- <a id="login" href="#self" class="btn btn-primary btn_tela_inicial">Login</a><br /> -->
+		<a id="btnSubmit" class="btn btn-primary btn_tela_inicial">Enviar</a><br />
 		<br />
-		<a href="<%=request.getContextPath()%>/login.jsp" class="btn btn_tela_inicial">Cancelar</a>
+		<a href="<%=caminho%>/login.jsp" class="btn btn_tela_inicial">Cancelar</a>
 	</p>
 </form>
 

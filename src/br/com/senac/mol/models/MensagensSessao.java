@@ -14,7 +14,7 @@ public class MensagensSessao
 
 	/**
 	 * Adiciona uma nova mensagem a lista de mensagens.
-	 * @param nome O nome da nova mensagem. Seu valor será empty.
+	 * @param nome O nome da nova mensagem. Seu valor sera empty.
 	 */
 	public void add(String nome)
 	{
