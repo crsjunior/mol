@@ -1,8 +1,10 @@
 package br.com.senac.mol.servlets;
 
+import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.apache.tomcat.util.http.fileupload.FileItem;
+import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import br.com.senac.mol.entidades.Produto;
 import br.com.senac.mol.entidades.Usuario;
@@ -32,6 +38,23 @@ public class CadastroProdutoServlet extends HttpServlet
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+//		if (ServletFileUpload.isMultipartContent(request)) {
+//			try {
+//				List<FileItem> multiparts = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(request);
+//				for (FileItem item : multiparts) {
+//					if (!item.isFormField()) {
+//						String name = new File(item.getName()).getName();
+//						item.write(new File("../" + File.separator + name));
+//					}
+//				}
+//
+//				// File uploaded successfully
+//				request.setAttribute("message", "File Uploaded Successfully");
+//			} catch (Exception ex) {
+//				request.setAttribute("message", "File Upload Failed due to " + ex);
+//			}
+//		}
+
 		String descricao = request.getParameter("txtDescricao").trim();
 		String resenha = request.getParameter("txtResenha").trim();
 		String strPreco = request.getParameter("txtPreco").replace(".", "").replace(",", ".").trim();
@@ -55,10 +78,10 @@ public class CadastroProdutoServlet extends HttpServlet
 		boolean ok = true;
 		if (descricao.length() < 4) { // descricao com no minimo 3 caracteres.
 			ok = false;
-			erro = "Descrição deve ter 3 ou mais caracteres";
+			erro = "DescriÃ§Ã£oo deve ter 3 ou mais caracteres";
 		} else if (!precoOk) {
 			ok = false;
-			erro = "Valor para o preço inválido";
+			erro = "Valor para o preÃ§o invÃ¡lido";
 		}
 
 		if (!ok) {

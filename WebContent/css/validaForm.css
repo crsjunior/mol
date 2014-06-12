@@ -1,0 +1,144 @@
+form input[type="submit"],
+form input[type="button"] {
+	margin-left: 5px;
+	height: 35px;
+	font-family: "Segoe UI";
+	font-size: 11pt;
+	font-weight: bold;
+}
+	/* mais: mais.php */
+	form input[type="submit"].submit {
+		height: 28px;
+		width: 100px;
+		font-size: 10pt;
+	}
+	form input[type="button"]#excluir {
+		height: 28px;
+		width: 100px;
+		font-size: 10pt;
+		color: red;
+	}
+		form input[type="button"]#excluir:disabled {
+			color: #F7BEC1;
+		}
+	
+	form input[type="submit"].submit-grande,
+	form input[type="button"].editar {
+		width: 150px;
+	}
+	/* mostrar-todos: consultar.php */
+	form input[type="submit"].mostrar-todos {
+		height: 28px;
+		width: 120px;
+		font-size: 10pt;
+		font-weight: normal;
+		font-style: italic;
+	}
+
+/* campos do form
+----------------------------------------------------------------------*/
+form input[type="text"],
+form input[type="password"],
+form input[type="date"],
+form input[type="checkbox"],
+form textarea,
+form select {
+	/*margin: 6px 0;
+	padding: 2px 5px;
+	height: 20px;
+	width: 300px;
+	border: none;
+	font-family: "Segoe UI";
+	color: #808080;
+	border-radius: 4px;
+	outline: inactiveborder; */
+}
+
+form input[type="checkbox"] {
+	height: 20px;
+	width: auto;
+	vertical-align: middle;
+}
+
+form textarea {
+	height: 150px;
+	resize: none;
+	overflow-y: scroll;
+}
+
+form select {
+	height: 24px;
+	width: 310px;
+}
+
+	form input[type="text"].colspan,
+	form textarea.colspan {
+		width: 763px;
+	}
+	form select.colspan {
+		width: 773px;
+	}
+
+	form input[type="text"].ver,
+	form textarea.ver {
+		cursor: text;
+	}
+
+	form input[type="text"].valido,
+	form input[type="password"].valido,
+	form input[type="date"].valido,
+	form textarea.valido,
+	form select.valido {
+		color: #008000;
+		background-color: #e0ffe0;
+		/*box-shadow: 0 0 4px 0 #17ff17; */
+	}
+	form input[type="text"].invalido,
+	form input[type="password"].invalido,
+	form input[type="date"].invalido,
+	form textarea.invalido,
+	form select.invalido {
+		color: #800000;
+		background-color: #ffe0e0;
+		box-shadow: 0 0 4px 0 #ff1717;
+	}
+
+/* span.msg-erro { */
+/* 	font-size: 0.9em; */
+/* 	font-style: italic; */
+/* 	color: red; */
+/* } */
+
+/* link voltar
+----------------------------------------------------------------------*/
+span#voltar {
+	width: 100px;
+	display: inline-block;
+	text-align: right;
+}
+
+/* área de saída do status do form
+----------------------------------------------------------------------*/
+span#status_form {
+	color: #000;
+	font-weight: bold;
+	font-style: italic;
+	width: 660px;
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: text-top;
+}
+	span#status_form.vermelho {
+		color: #fc3535;
+	}
+	span#status_form.amarelo {
+		color: #dbe60b;
+	}
+	span#status_form.verde {
+		color: #5cd633;
+	}
+	span#status_form.azul {
+		color: #0e9fcf;
+	}
