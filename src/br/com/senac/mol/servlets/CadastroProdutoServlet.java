@@ -1,8 +1,10 @@
 package br.com.senac.mol.servlets;
 
+import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.apache.tomcat.util.http.fileupload.FileItem;
+import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import br.com.senac.mol.entidades.Produto;
 import br.com.senac.mol.entidades.Usuario;
@@ -72,10 +78,17 @@ public class CadastroProdutoServlet extends HttpServlet
 		boolean ok = true;
 		if (descricao.length() < 4) { // descricao com no minimo 3 caracteres.
 			ok = false;
+<<<<<<< HEAD
 			erro = "Descrição deve ter 3 ou mais caracteres";
 		} else if (!precoOk) {
 			ok = false;
 			erro = "Valor para o preço inválido";
+=======
+			erro = "DescriÃ§Ã£oo deve ter 3 ou mais caracteres";
+		} else if (!precoOk) {
+			ok = false;
+			erro = "Valor para o preÃ§o invÃ¡lido";
+>>>>>>> 13c8e910a230ac375bc90ebf2e3f60e56104e9ed
 		}
 
 		if (!ok) {
@@ -100,5 +113,8 @@ public class CadastroProdutoServlet extends HttpServlet
 
 		response.sendRedirect(request.getContextPath() + "/index.jsp");
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 13c8e910a230ac375bc90ebf2e3f60e56104e9ed
 }

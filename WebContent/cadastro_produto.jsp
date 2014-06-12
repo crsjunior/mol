@@ -52,6 +52,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <form id="formCadastroProduto" name="formCadastroProduto" action="CadastroProdutoServlet" enctype="multipart/form-data" method="post">
             <h1><strong>M</strong>OL</h1>
             <br />
@@ -74,6 +75,8 @@
 =======
 =======
 >>>>>>> 13c8e910a230ac375bc90ebf2e3f60e56104e9ed
+=======
+>>>>>>> 13c8e910a230ac375bc90ebf2e3f60e56104e9ed
 <form id="formCadastroProduto" name="formCadastroProduto" action="CadastroProdutoServlet" method="post">
 	<h1><strong>M</strong>OL</h1>
 	<br />
@@ -94,6 +97,9 @@
 	</div>
 </form>
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 13c8e910a230ac375bc90ebf2e3f60e56104e9ed
+=======
 >>>>>>> 13c8e910a230ac375bc90ebf2e3f60e56104e9ed
 =======
 >>>>>>> 13c8e910a230ac375bc90ebf2e3f60e56104e9ed
