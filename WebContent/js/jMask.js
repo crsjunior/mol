@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // jQuery Mask Plugin v1.6.4
 // github.com/igorescobar/jQuery-Mask-Plugin
 (function(g){"function"===typeof define&&define.amd?define(["jquery"],g):g(window.jQuery||window.Zepto)})(function(g){var y=function(a,f,d){var k=this,x;a=g(a);f="function"===typeof f?f(a.val(),void 0,a,d):f;k.init=function(){d=d||{};k.byPassKeys=[9,16,17,18,36,37,38,39,40,91];k.translation={0:{pattern:/\d/},9:{pattern:/\d/,optional:!0},"#":{pattern:/\d/,recursive:!0},A:{pattern:/[a-zA-Z0-9]/},S:{pattern:/[a-zA-Z]/}};k.translation=g.extend({},k.translation,d.translation);k=g.extend(!0,{},k,d);a.each(function(){!1!==
@@ -12,6 +13,8 @@ c.setCaret(a-d)};k.getCleanVal=function(){return c.getMasked(!0)};k.init()};g.fn
 !1);"true"===a.attr("data-mask-clearifnotmatch")&&(f.clearIfNotMatch=!0);a.mask(a.attr("data-mask"),f)})});
 
 =======
+=======
+>>>>>>> 13c8e910a230ac375bc90ebf2e3f60e56104e9ed
 (function($) {
 		  
 $.fn.jMask = function(options){
@@ -205,5 +208,9 @@ function random_array(maxn)
 	 return array;
  };
 
+<<<<<<< HEAD
+		  })(jQuery);
+>>>>>>> 13c8e910a230ac375bc90ebf2e3f60e56104e9ed
+=======
 		  })(jQuery);
 >>>>>>> 13c8e910a230ac375bc90ebf2e3f60e56104e9ed

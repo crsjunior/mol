@@ -7,7 +7,7 @@ $(function() {
      }
      );
      */
-	 
+	 /*
 	var dt = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.app.senac.com.br/"><soapenv:Header/><soapenv:Body><ws:login><usuario>usuario</usuario><senha>senha</senha></ws:login></soapenv:Body></soapenv:Envelope>';
 	$.ajax({
 	   type: "GET",
@@ -22,7 +22,7 @@ $(function() {
 		   alert("error: "+e);
 	   }
 	});	 
-	 
+	 */
 	/*
     $.post('http://localhost:8080/mol/login', {usuario:"lucas",senha:"senha"}).done(function(data) {
         alert(data);
