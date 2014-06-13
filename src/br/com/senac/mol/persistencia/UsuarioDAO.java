@@ -26,6 +26,43 @@ public class UsuarioDAO extends DAO
 		}
 	}
 
+	public void update(Usuario usuario)
+	{
+		EntityManager em = getEntityManager();
+		try {
+			em.getTransaction().begin();
+
+			Usuario trabalho = em.find(Usuario.class, usuario.getId());
+			trabalho.setNome(usuario.getNome());
+			trabalho.setEmail(usuario.getEmail());
+			trabalho.setSenha(usuario.getSenha());
+			trabalho.setAtivo(usuario.getAtivo());
+
+			em.getTransaction().commit();
+		} catch (Exception ex) {
+			em.getTransaction().rollback();
+			ex.printStackTrace();
+		} finally {
+			em.close();
+		}
+	}
+
+	public void delete(Usuario usuario)
+	{
+		EntityManager em = getEntityManager();
+		try {
+			em.getTransaction().begin();
+			Usuario trabalho = em.find(Usuario.class, usuario.getId());
+			em.remove(trabalho);
+			em.getTransaction().commit();
+		} catch (Exception ex) {
+			em.getTransaction().rollback();
+			ex.printStackTrace();
+		} finally {
+			em.close();
+		}
+	}
+
 	public Usuario getByEmailSenha(String email, String senha)
 	{
 		Usuario usuario = null;

@@ -26,6 +26,41 @@ public class LocalizacaoDAO extends DAO
 		}
 	}
 
+	public void update(Localizacao localizacao)
+	{
+		EntityManager em = getEntityManager();
+		try {
+			em.getTransaction().begin();
+
+			Localizacao trabalho = em.find(Localizacao.class, localizacao.getId());
+			trabalho.setLatitude(localizacao.getLatitude());
+			trabalho.setLongitude(localizacao.getLongitude());
+
+			em.getTransaction().commit();
+		} catch (Exception ex) {
+			em.getTransaction().rollback();
+			ex.printStackTrace();
+		} finally {
+			em.close();
+		}
+	}
+
+	public void delete(Localizacao localizacao)
+	{
+		EntityManager em = getEntityManager();
+		try {
+			em.getTransaction().begin();
+			Localizacao trabalho = em.find(Localizacao.class, localizacao.getId());
+			em.remove(trabalho);
+			em.getTransaction().commit();
+		} catch (Exception ex) {
+			em.getTransaction().rollback();
+			ex.printStackTrace();
+		} finally {
+			em.close();
+		}
+	}
+
 	public Localizacao getById(long id)
 	{
 		Localizacao localizacao = null;

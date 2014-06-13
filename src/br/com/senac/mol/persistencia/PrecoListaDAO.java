@@ -1,19 +1,17 @@
 package br.com.senac.mol.persistencia;
 
-import java.util.Date;
-
 import javax.persistence.EntityManager;
 
-import br.com.senac.mol.entidades.Produto;
+import br.com.senac.mol.entidades.PrecoLista;
 
-public class ProdutoDAO extends DAO
+public class PrecoListaDAO extends DAO
 {
-	public void insert(Produto produto)
+	public void insert(PrecoLista precoLista)
 	{
 		EntityManager em = getEntityManager();
 		try {
 			em.getTransaction().begin();
-			em.persist(produto);
+			em.persist(precoLista);
 			em.getTransaction().commit();
 		} catch (Exception ex) {
 			em.getTransaction().rollback();
@@ -23,17 +21,15 @@ public class ProdutoDAO extends DAO
 		}
 	}
 
-	public void update(Produto produto)
+	public void update(PrecoLista precoLista)
 	{
 		EntityManager em = getEntityManager();
 		try {
 			em.getTransaction().begin();
 
-			Produto trabalho = em.find(Produto.class, produto.getId());
-			trabalho.setDescricao(produto.getDescricao());
-			trabalho.setResenha(produto.getResenha());
-			trabalho.setPreco(produto.getPreco());
-			trabalho.setDataUltimaAtualizacao(new Date());
+			PrecoLista trabalho = em.find(PrecoLista.class, precoLista.getId());
+			trabalho.setPreco(precoLista.getPreco());
+			trabalho.setItemLista(precoLista.getItemLista());
 
 			em.getTransaction().commit();
 		} catch (Exception ex) {
@@ -44,12 +40,12 @@ public class ProdutoDAO extends DAO
 		}
 	}
 
-	public void delete(Produto produto)
+	public void delete(PrecoLista precoLista)
 	{
 		EntityManager em = getEntityManager();
 		try {
 			em.getTransaction().begin();
-			Produto trabalho = em.find(Produto.class, produto.getId());
+			PrecoLista trabalho = em.find(PrecoLista.class, precoLista.getId());
 			em.remove(trabalho);
 			em.getTransaction().commit();
 		} catch (Exception ex) {
@@ -60,15 +56,15 @@ public class ProdutoDAO extends DAO
 		}
 	}
 
-	public Produto getById(long id)
+	public PrecoLista getById(long id)
 	{
-		Produto produto = null;
+		PrecoLista precoLista = null;
 		EntityManager em = getEntityManager();
 		try {
-			produto = em.find(Produto.class, id);
+			precoLista = em.find(PrecoLista.class, id);
 		} finally {
 			em.close();
 		}
-		return produto;
+		return precoLista;
 	}
 }

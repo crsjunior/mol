@@ -1,19 +1,17 @@
 package br.com.senac.mol.persistencia;
 
-import java.util.Date;
-
 import javax.persistence.EntityManager;
 
-import br.com.senac.mol.entidades.Produto;
+import br.com.senac.mol.entidades.LikesItens;
 
-public class ProdutoDAO extends DAO
+public class LikesItensDAO extends DAO
 {
-	public void insert(Produto produto)
+	public void insert(LikesItens likesItens)
 	{
 		EntityManager em = getEntityManager();
 		try {
 			em.getTransaction().begin();
-			em.persist(produto);
+			em.persist(likesItens);
 			em.getTransaction().commit();
 		} catch (Exception ex) {
 			em.getTransaction().rollback();
@@ -23,17 +21,16 @@ public class ProdutoDAO extends DAO
 		}
 	}
 
-	public void update(Produto produto)
+	public void update(LikesItens likesItens)
 	{
 		EntityManager em = getEntityManager();
 		try {
 			em.getTransaction().begin();
 
-			Produto trabalho = em.find(Produto.class, produto.getId());
-			trabalho.setDescricao(produto.getDescricao());
-			trabalho.setResenha(produto.getResenha());
-			trabalho.setPreco(produto.getPreco());
-			trabalho.setDataUltimaAtualizacao(new Date());
+			LikesItens trabalho = em.find(LikesItens.class, likesItens.getId());
+			trabalho.setItemLista(likesItens.getItemLista());
+			trabalho.setUsuario(likesItens.getUsuario());
+			trabalho.setLk(likesItens.getLk());
 
 			em.getTransaction().commit();
 		} catch (Exception ex) {
@@ -44,12 +41,12 @@ public class ProdutoDAO extends DAO
 		}
 	}
 
-	public void delete(Produto produto)
+	public void delete(LikesItens likesItens)
 	{
 		EntityManager em = getEntityManager();
 		try {
 			em.getTransaction().begin();
-			Produto trabalho = em.find(Produto.class, produto.getId());
+			LikesItens trabalho = em.find(LikesItens.class, likesItens.getId());
 			em.remove(trabalho);
 			em.getTransaction().commit();
 		} catch (Exception ex) {
@@ -60,15 +57,15 @@ public class ProdutoDAO extends DAO
 		}
 	}
 
-	public Produto getById(long id)
+	public LikesItens getById(long id)
 	{
-		Produto produto = null;
+		LikesItens likesItens = null;
 		EntityManager em = getEntityManager();
 		try {
-			produto = em.find(Produto.class, id);
+			likesItens = em.find(LikesItens.class, id);
 		} finally {
 			em.close();
 		}
-		return produto;
+		return likesItens;
 	}
 }

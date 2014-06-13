@@ -21,6 +21,41 @@ public class EstabelecimentoDAO extends DAO
 		}
 	}
 
+	public void update(Estabelecimento estabelecimento)
+	{
+		EntityManager em = getEntityManager();
+		try {
+			em.getTransaction().begin();
+
+			Estabelecimento trabalho = em.find(Estabelecimento.class, estabelecimento.getId());
+			trabalho.setNome(estabelecimento.getNome());
+			trabalho.setEndereco(estabelecimento.getEndereco());
+
+			em.getTransaction().commit();
+		} catch (Exception ex) {
+			em.getTransaction().rollback();
+			ex.printStackTrace();
+		} finally {
+			em.close();
+		}
+	}
+
+	public void delete(Estabelecimento estabelecimento)
+	{
+		EntityManager em = getEntityManager();
+		try {
+			em.getTransaction().begin();
+			Estabelecimento trabalho = em.find(Estabelecimento.class, estabelecimento.getId());
+			em.remove(trabalho);
+			em.getTransaction().commit();
+		} catch (Exception ex) {
+			em.getTransaction().rollback();
+			ex.printStackTrace();
+		} finally {
+			em.close();
+		}
+	}
+
 	public Estabelecimento getById(long id)
 	{
 		Estabelecimento estabelecimento = null;
