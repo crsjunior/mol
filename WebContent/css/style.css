@@ -22,12 +22,15 @@ h2 {
 
 form {
 	width:335px;
-	height:550px;
+	height:100%;
+        top:0;
+        bottom:0;
 	margin:0 auto;
 	left:-150px;
-	border: 1px solid black;
-	border-radius:10px;
-	background-image:url(../img/carrin.jpg);
+}
+
+body {
+    background:url(../img/bg.jpg) repeat-y center;
 }
 
 form strong {
@@ -99,4 +102,8 @@ form .link {
  
  #txtResenha {
  	height: auto;
+ }
+ 
+ #list-imagem {
+     text-align:center;
  }

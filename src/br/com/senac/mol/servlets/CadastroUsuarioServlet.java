@@ -16,63 +16,60 @@ import br.com.senac.mol.models.MensagensSessao;
 import br.com.senac.mol.persistencia.UsuarioDAO;
 
 @WebServlet("/CadastroUsuarioServlet")
-public class CadastroUsuarioServlet extends HttpServlet
-{
-	private static final long serialVersionUID = 1L;
+public class CadastroUsuarioServlet extends HttpServlet {
 
-	public CadastroUsuarioServlet()
-	{
-		super();
-	}
+    private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
-	}
+    public CadastroUsuarioServlet() {
+        super();
+    }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
-		String txtNome = request.getParameter("txtNome");
-		String txtEmail = request.getParameter("txtEmail");
-		String txtSenha = request.getParameter("txtSenha");
-		String txtSenhaConfirma = request.getParameter("txtSenhaConfirma");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    }
 
-		HttpSession sessao = request.getSession();
-		MensagensSessao mensagens = new MensagensSessao();
-		sessao.setAttribute("mensagens", mensagens);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String txtNome = request.getParameter("txtNome");
+        String txtEmail = request.getParameter("txtEmail");
+        String txtSenha = request.getParameter("txtSenha");
+        String txtSenhaConfirma = request.getParameter("txtSenhaConfirma");
 
-		// verificando entradas do usuario:
-		boolean ok = true;
-		if (txtNome.length() < 3) { // nome com no minimo de 3 caracteres.
-			ok = false;
-			mensagens.add("erro", "Nome deve ter 3 ou mais caracteres");
-		} else if (!txtEmail.matches(Constantes.REGEX_EMAIL)) { // email com formato valido.
-			ok = false;
-			mensagens.add("erro", "Email inválido");
-		} else if (txtSenha.length() < 6) { // senha com no minimo 6 caracteres.
-			ok = false;
-			mensagens.add("erro", "Senha deve ter 6 ou mais caracteres");
-		} else if (!txtSenha.equals(txtSenhaConfirma)) { // senha e confirmacao da senha iguais.
-			ok = false;
-			mensagens.add("erro", "Confirmação incorreta de senha");
-		}
+        HttpSession sessao = request.getSession();
+        MensagensSessao mensagens = new MensagensSessao();
+        sessao.setAttribute("mensagens", mensagens);
 
-		if (!ok) {
-			mensagens.add("nome", txtNome);
-			mensagens.add("email", txtEmail);
-			response.sendRedirect(request.getContextPath() + "/cadastro_usuario.jsp");
-			return;
-		}
+        // verificando entradas do usuario:
+        boolean ok = true;
+        if (txtNome.length() < 3) { // nome com no minimo de 3 caracteres.
+            ok = false;
+            mensagens.add("erro", "Nome deve ter 3 ou mais caracteres");
+        } else if (!txtEmail.matches(Constantes.REGEX_EMAIL)) { // email com formato valido.
+            ok = false;
+            mensagens.add("erro", "Email in&acute;lido");
+        } else if (txtSenha.length() < 6) { // senha com no minimo 6 caracteres.
+            ok = false;
+            mensagens.add("erro", "Senha deve ter 6 ou mais caracteres");
+        } else if (!txtSenha.equals(txtSenhaConfirma)) { // senha e confirmacao da senha iguais.
+            ok = false;
+            mensagens.add("erro", "Confirma&ccedil;&atilde;o incorreta de senha");
+        }
 
-		Usuario usuario = new Usuario();
-		usuario.setNome(txtNome);
-		usuario.setEmail(txtEmail);
-		usuario.setSenha(txtSenha);
-		usuario.setDataCadastro(new Date());
-		usuario.setAtivo((short) 1);
+        if (!ok) {
+            mensagens.add("nome", txtNome);
+            mensagens.add("email", txtEmail);
+            response.sendRedirect(request.getContextPath() + "/cadastro_usuario.jsp");
+            return;
+        }
 
-		UsuarioDAO dao = new UsuarioDAO();
-		dao.insert(usuario);
+        Usuario usuario = new Usuario();
+        usuario.setNome(txtNome);
+        usuario.setEmail(txtEmail);
+        usuario.setSenha(txtSenha);
+        usuario.setDataCadastro(new Date());
+        usuario.setAtivo((short) 1);
 
-		response.sendRedirect(request.getContextPath() + "/login.jsp");
-	}
+        UsuarioDAO dao = new UsuarioDAO();
+        dao.insert(usuario);
+
+        response.sendRedirect(request.getContextPath() + "/login.jsp");
+    }
 }
