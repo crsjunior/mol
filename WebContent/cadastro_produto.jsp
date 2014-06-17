@@ -53,6 +53,10 @@
             var formNome = 'formCadastroProduto';
             var formSubmitOnEnter = false;
             
+            function RemoverImagem(target) {
+                $(target).parent().remove();
+            }
+            
             $(function(){
                 
                 $('#arqImagem').change(function(){
@@ -62,7 +66,7 @@
                            success: function(data) {
                                var obj = $.parseJSON(data);
                                $.each(obj, function(key, value){
-                                   $('#list-imagem').append('<img width="190" src="<%=caminho%>/img/'+value.nomeArquivo+'" /><input type="hidden" name="img" value="'+value.nomeArquivo+'" />');
+                                   $('#list-imagem').append('<div class="div-imagens"><img width="190" src="<%=caminho%>/img/'+value.nomeArquivo+'" /><input type="hidden" name="img" value="'+value.nomeArquivo+'" /><a href="#self" onclick="RemoverImagem(this);" title="Remover imagem"><img class="btn-fechar" src="<%=caminho%>/img/icon-delete.png" /></a></div>');
                                    $('#arqImagem').val('');
                                });
                            }

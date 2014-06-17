@@ -107,3 +107,8 @@ form .link {
  #list-imagem {
      text-align:center;
  }
+ 
+ .btn-fechar {
+     
+     position:absolute;
+ }
