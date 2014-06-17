@@ -90,9 +90,9 @@
             <br />
             <h2>Cadastro de Produto</h2>
             <p>
-                <input id="txtDescricao" name="txtDescricao" type="text" value="<%=descricao%>" placeholder="Descrição" data-obrigatorio="true" data-tammin="3" />
+                <input id="txtDescricao" autocomplete="off" name="txtDescricao" type="text" value="<%=descricao%>" placeholder="Descrição" data-obrigatorio="true" data-tammin="3" />
                 <textarea id="txtResenha" name="txtResenha" rows="4" placeholder="Resenha" data-obrigatorio="true"><%=resenha%></textarea>
-                <input id="txtPreco" name="txtPreco" type="text" value="<%=preco%>" placeholder="Preço" data-obrigatorio="true" data-tipo="dinheiro" />
+                <input id="txtPreco" autocomplete="off" name="txtPreco" type="text" value="<%=preco%>" placeholder="Preço" data-obrigatorio="true" data-tipo="dinheiro" />
                 <a id="btn-add-image" class="btn btn-primary btn_tela_inicial">Adicionar Imagem</a>
                 <input type="hidden" name="hash" id="hash" value="<%=hash_prod%>" />
             </p>

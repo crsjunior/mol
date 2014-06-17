@@ -42,15 +42,15 @@
 
 <body>
 
-<form id="formCadastroUsuario" name="formCadastroUsuario" action="CadastroUsuarioServlet" method="post">
+    <form autocomplete="off" id="formCadastroUsuario" name="formCadastroUsuario" action="CadastroUsuarioServlet" method="post">
 	<h1><strong>M</strong>OL</h1>
 	<br />
 	<h2>Cadastre-se</h2>
 	<p>
-		<input id="txtNome" name="txtNome" type="text" value="<%=nome%>" placeholder="Nome" />
-		<input id="txtEmail" name="txtEmail" type="text" value="<%=email%>" placeholder="Email">
-		<input id="txtSenha" name="txtSenha" type="password" value="" placeholder="Senha" />
-		<input id="txtSenhaConfirma" name="txtSenhaConfirma" type="password" value="" placeholder="Confirme a senha" />
+		<input autocomplete="off" id="txtNomeCad" name="txtNomeCad" type="text" value="<%=nome%>" placeholder="Nome" />
+		<input autocomplete="off" id="txtEmailCad" name="txtEmailCad" type="text" value="<%=email%>" placeholder="Email">
+		<input autocomplete="off" id="txtSenhaCad" name="txtSenhaCad" type="password" value="" placeholder="Senha" />
+		<input autocomplete="off" id="txtSenhaConfirmaCad" name="txtSenhaConfirmaCad" type="password" value="" placeholder="Confirme a senha" />
 	</p>
 	<div id="status" style="text-align: center;"><%=status%></div>
 	<p>

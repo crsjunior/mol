@@ -28,10 +28,10 @@ public class CadastroUsuarioServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String txtNome = request.getParameter("txtNome");
-        String txtEmail = request.getParameter("txtEmail");
-        String txtSenha = request.getParameter("txtSenha");
-        String txtSenhaConfirma = request.getParameter("txtSenhaConfirma");
+        String txtNome = request.getParameter("txtNomeCad");
+        String txtEmail = request.getParameter("txtEmailCad");
+        String txtSenha = request.getParameter("txtSenhaCad");
+        String txtSenhaConfirma = request.getParameter("txtSenhaConfirmaCad");
 
         HttpSession sessao = request.getSession();
         MensagensSessao mensagens = new MensagensSessao();
