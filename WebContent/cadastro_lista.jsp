@@ -3,68 +3,134 @@
 <!doctype html>
 
 <%
-	// variaveis:
-	HttpSession sessao = request.getSession();
-	MensagensSessao mensagens = (MensagensSessao) sessao.getAttribute("mensagens");
-	String caminho = request.getContextPath();
-	String status = "&nbsp;";
-	String statusClass = "";
-	String descricao = "";
-	String resenha = "";
-	String preco = "";
+    // variaveis:
+    HttpSession sessao = request.getSession();
+    MensagensSessao mensagens = (MensagensSessao) sessao.getAttribute("mensagens");
+    String caminho = request.getContextPath();
+    String status = "&nbsp;";
+    String statusClass = "";
+    String descricao = "";
+    String resenha = "";
+    String preco = "";
 
-	// mensagens:
-	if (mensagens != null) {
-		// algum erro?
-		if (mensagens.get("erro") != null) {
-			status = mensagens.pop("erro");
-			statusClass = "vermelho";
-			descricao = mensagens.pop("descricao");
-			resenha = mensagens.pop("resenha");
-			preco = mensagens.pop("preco");
-		}
-	}
+    // mensagens:
+    if (mensagens != null) {
+        // algum erro?
+        if (mensagens.get("erro") != null) {
+            status = mensagens.pop("erro");
+            statusClass = "vermelho";
+            descricao = mensagens.pop("descricao");
+            resenha = mensagens.pop("resenha");
+            preco = mensagens.pop("preco");
+        }
+    }
 %>
 
 <html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>MOL</title>
-	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.css">
-	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap-responsive.css">
-	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
-	<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.js"></script>
-	<script type="text/javascript">
-		$(function()
-		{
-			$('#txtDescricao').focus();
-			$('#btnCadastrar').click(function()
-			{
-				$('#formCadastroLista').submit();
-			});
-		});
-	</script>
-</head>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>MOL</title>
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.css">
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
+        <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.js"></script>
+        <script type="text/javascript">
+            $(function()
+            {
+                $('#txtDescricao').focus();
+                $('#btnCadastrar').click(function()
+                {
+                    $('#formCadastroLista').submit();
+                });
+                
+                $('#btnAdicionarProdutos').click(function(){
+                   $('#formCadastroLista').fadeOut('fast');
+                   $('#overlay').show('fast');
+                   $('#div-produtos').css(
+                        {
+                            left:($('body').width()/2)-$('#div-produtos').width()/2,
+                            height:$('#formCadastroLista').height()
+                        }
+                   ).fadeIn('fast');
+                   $("#lista-prods").html('');
+                   $.post('lista_produtos_lista.jsp',{},function(data){
+                      $('#lista-prods').html(data);
+                   });
+                });
+                
+                $('#btnCancelaAdicaoProduto').click(function(){
+                   $('#overlay').fadeOut('fast');
+                   $('#div-produtos').fadeOut('fast');
+                   $('#formCadastroLista').fadeIn('fast');
+                });
 
-<body>
+            });
+        </script>
+        <style type="text/css">
+            #overlay {
+                z-index:100;
+                background: url(../img/bg.jpg) repeat-y center;
+                position:absolute;
+                top:0;
+                left:0;
+                width:100%;
+                height:100%;
+                display:none;
+            }
+            #lista-prods {
+                margin:0 auto;
+                margin-top:30px;
+                background:#fff;
+                width:300px;
+            }
+            
+            #div-produtos {
+                top:0;
+                width:368px;
+                z-index:200;
+                display:none;
+                display:none;
+                height:100%;
+                bottom:0;
+                position:absolute;
+                padding-top:50px;
+            }
+            #formCadastroLista {
+                z-index:-1;
+            }
+            
+            #btnCancelaAdicaoProduto {
+                width:200px;
+                display:block !important;
+                margin:0 auto;
+            }
+            #div-lista-prod {
+                margin:0 auto;
+            }
+        </style>
+    </head>
 
-<form id="formCadastroLista" name="formCadastroLista" action="CadastroListaServlet" method="post">
-	<h1><strong>M</strong>OL</h1>
-	<br />
-	<h2>Cadastro de Lista</h2>
-	<p>
-		<input id="txtDescricao" name="txtDescricao" type="text" value="<%=descricao%>" placeholder="Descrição" />
-	</p>
-	<div id="div-produtos">
-		
-	</div>
-	<div id="status" class="<%=statusClass%>"><%=status%></div>
-	<p>
-		<a id="btnAdicionarProdutos" class="btn btn-primary btn_tela_inicial">Adicionar produtos</a>
-		<a id="btnCadastrar" class="btn btn-primary btn_tela_inicial">Cadastrar Lista</a>
-		<a href="<%=caminho%>/index.jsp" class="btn btn_tela_inicial">Cancelar</a>
-	</p>
-</form>
+    <body>
 
-</body>
+        <form id="formCadastroLista" name="formCadastroLista" action="CadastroListaServlet" method="post">
+            <h1><strong>M</strong>OL</h1>
+            <br />
+            <h2>Cadastro de Lista</h2>
+            <p>
+                <input id="txtDescricao" name="txtDescricao" type="text" value="<%=descricao%>" placeholder="Descrição" />
+            </p>
+            
+            <div id="status" class="<%=statusClass%>"><%=status%></div>
+            <p>
+                <a id="btnAdicionarProdutos" class="btn btn-primary btn_tela_inicial">Adicionar produtos</a>
+                <a id="btnCadastrar" class="btn btn-primary btn_tela_inicial">Cadastrar Lista</a>
+                <a href="<%=caminho%>/index.jsp" class="btn btn_tela_inicial">Cancelar</a>
+            </p>
+        </form>
+        <div id="div-produtos">
+            <a href="#self" id="btnCancelaAdicaoProduto" class="btn btn_tela_inicial">Cancelar</a>
+            <div id="lista-prods"></div>
+        </div>
+        <div id="overlay">&nbsp;</div>
+    </body>
 </html>

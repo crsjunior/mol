@@ -59,7 +59,7 @@ public class CadastroEstabelecimentoServlet extends HttpServlet
 			erro = "Nome deve ter 3 ou mais caracteres";
 		} else if (!localizacaoOk) {
 			ok = false;
-			erro = "Localização inválida";
+			erro = "Localiza&atilde;o inv&aacute;lida";
 		}
 
 		if (!ok) {

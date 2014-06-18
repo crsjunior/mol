@@ -1,5 +1,8 @@
 package br.com.senac.mol.utils;
 
+import java.math.BigDecimal;
+import java.text.NumberFormat;
+
 /**
  *
  * @author Equipe MOL
@@ -13,6 +16,12 @@ public class Uteis {
         } else {
             return null;
         }
+    }
+    
+    public static String formataCurrency(BigDecimal valor) {
+        String retorno = valor.toString();
+        retorno = retorno.replaceAll("\\.", ",");
+        return retorno;
     }
     
 }

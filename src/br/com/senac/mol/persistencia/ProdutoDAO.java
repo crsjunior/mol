@@ -5,6 +5,9 @@ import java.util.Date;
 import javax.persistence.EntityManager;
 
 import br.com.senac.mol.entidades.Produto;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.Query;
 
 public class ProdutoDAO extends DAO
 {
@@ -71,4 +74,23 @@ public class ProdutoDAO extends DAO
 		}
 		return produto;
 	}
+        
+        public List<Produto> getProdutosByName(String descricao) {
+            
+            EntityManager em = getEntityManager();
+            String sql = "";
+            if(descricao!=null) {
+                sql = "SELECT a FROM Produto a WHERE a.descricao LIKE '%"+descricao+"%' ORDER BY a.id DESC";
+            }else{
+                sql = "SELECT a FROM Produto a ORDER BY a.id DESC";
+            }
+            
+            Query query = em.createQuery(sql);
+            query.setMaxResults(20);
+            
+            List produtos = query.getResultList();
+            return produtos;
+            
+        }
+        
 }
