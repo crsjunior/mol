@@ -42,48 +42,39 @@
                 {
                     $('#formCadastroLista').submit();
                 });
-                
-                $('#btnAdicionarProdutos').click(function(){
-                   $('#formCadastroLista').fadeOut('fast');
-                   $('#overlay').show('fast');
-                   $('#div-produtos').css(
-                        {
-                            left:($('body').width()/2)-$('#div-produtos').width()/2,
-                            height:$('#formCadastroLista').height()
-                        }
-                   ).fadeIn('fast');
-                   $("#lista-prods").html('');
-                   $.post('lista_produtos_lista.jsp',{},function(data){
-                      $('#lista-prods').html(data);
-                   });
+
+                $('#btnAdicionarProdutos').click(function() {
+                    $('#dv-cont-form').fadeOut('fast');
+                    //$('#overlay').show('fast');
+                    $('#div-produtos').css(
+                            {
+                                left: ($('body').width() / 2) - $('#div-produtos').width() / 2,
+                                height: $('#formCadastroLista').height()
+                            }
+                    ).fadeIn('fast');
+                    $("#lista-prods").html('<p align="center"><img src="/mol/img/icon_loading.gif" /></p>');
+                    $.post('lista_produtos_lista.jsp', {}, function(data) {
+                        $('#lista-prods').html(data);
+                    });
                 });
-                
-                $('#btnCancelaAdicaoProduto').click(function(){
-                   $('#overlay').fadeOut('fast');
-                   $('#div-produtos').fadeOut('fast');
-                   $('#formCadastroLista').fadeIn('fast');
+
+                $('#btnCancelaAdicaoProduto').click(function() {
+                    //$('#overlay').fadeOut('fast');
+                    $('#div-produtos').fadeOut('fast');
+                    $('#dv-cont-form').fadeIn('fast');
                 });
 
             });
         </script>
         <style type="text/css">
-            #overlay {
-                z-index:100;
-                background: url(../img/bg.jpg) repeat-y center;
-                position:absolute;
-                top:0;
-                left:0;
-                width:100%;
-                height:100%;
-                display:none;
-            }
+
             #lista-prods {
-                margin:0 auto;
-                margin-top:30px;
-                background:#fff;
-                width:300px;
+                margin:30px auto;
+                background:#F2F2F2;
+                border:1px solid #D4D4D4;
+                width:270px;
             }
-            
+
             #div-produtos {
                 top:0;
                 width:368px;
@@ -93,12 +84,12 @@
                 height:100%;
                 bottom:0;
                 position:absolute;
-                padding-top:50px;
+                padding-top:75px;
             }
             #formCadastroLista {
                 z-index:-1;
             }
-            
+
             #btnCancelaAdicaoProduto {
                 width:200px;
                 display:block !important;
@@ -107,6 +98,94 @@
             #div-lista-prod {
                 margin:0 auto;
             }
+            
+            .lista-interna {
+                height:100%;
+                float:none;
+                clear:both;
+                border-bottom:1px solid #595959;
+                padding:6px 0;
+            }
+
+            .prod-lista {
+                border-color:#F71B59;
+                border-style:solid;
+                border-width:0 2px 0 2px;
+                display:block;
+                margin:0 auto;
+                width:100%;
+                color:#2E2828;
+                clear:both;                
+                float:none;
+background: #9e9e9e; /* Old browsers */
+background: -moz-linear-gradient(top,  #9e9e9e 0%, #848484 50%, #777777 51%, #c6c6c6 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9e9e9e), color-stop(50%,#848484), color-stop(51%,#777777), color-stop(100%,#c6c6c6)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #9e9e9e 0%,#848484 50%,#777777 51%,#c6c6c6 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #9e9e9e 0%,#848484 50%,#777777 51%,#c6c6c6 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #9e9e9e 0%,#848484 50%,#777777 51%,#c6c6c6 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #9e9e9e 0%,#848484 50%,#777777 51%,#c6c6c6 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9e9e9e', endColorstr='#c6c6c6',GradientType=0 ); /* IE6-9 */
+
+
+
+
+            }
+
+            .prod-lista:hover {
+                color:#fff;
+                background: #1b3d87; /* Old browsers */
+                background: -moz-linear-gradient(top,  #1b3d87 0%, #2989d8 50%, #207cca 51%, #409de5 100%); /* FF3.6+ */
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1b3d87), color-stop(50%,#2989d8), color-stop(51%,#207cca), color-stop(100%,#409de5)); /* Chrome,Safari4+ */
+                background: -webkit-linear-gradient(top,  #1b3d87 0%,#2989d8 50%,#207cca 51%,#409de5 100%); /* Chrome10+,Safari5.1+ */
+                background: -o-linear-gradient(top,  #1b3d87 0%,#2989d8 50%,#207cca 51%,#409de5 100%); /* Opera 11.10+ */
+                background: -ms-linear-gradient(top,  #1b3d87 0%,#2989d8 50%,#207cca 51%,#409de5 100%); /* IE10+ */
+                background: linear-gradient(to bottom,  #1b3d87 0%,#2989d8 50%,#207cca 51%,#409de5 100%); /* W3C */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b3d87', endColorstr='#409de5',GradientType=0 ); /* IE6-9 */
+            }
+            
+            .lista-interna:after {
+                content: " ";
+                display: block; 
+                height: 0; 
+                clear: both;
+            }
+
+            .prod-img {
+                float:left;
+                line-height: 100%;
+                height:100%;
+                padding:2px 4px;
+            }
+
+            .prod-desc p {
+                line-height: 10px;
+            }
+
+            .prod-desc {
+                padding:4px 10px 0 10px;
+                float:left;
+
+            }
+
+            .p-preco {
+                margin-right:20px;
+                text-align:right;
+                float:right;
+                width:65px;
+            }
+
+            .sp-preco {
+                font-size:26px;
+                display:inline-block;
+            }
+
+            .sp-centavos {
+                position:absolute;
+                font-size:10px;
+                display:inline-block;
+                margin-top:-5px;
+            }
+
         </style>
     </head>
 
@@ -116,20 +195,22 @@
             <h1><strong>M</strong>OL</h1>
             <br />
             <h2>Cadastro de Lista</h2>
-            <p>
-                <input id="txtDescricao" name="txtDescricao" type="text" value="<%=descricao%>" placeholder="Descrição" />
-            </p>
-            
-            <div id="status" class="<%=statusClass%>"><%=status%></div>
-            <p>
-                <a id="btnAdicionarProdutos" class="btn btn-primary btn_tela_inicial">Adicionar produtos</a>
-                <a id="btnCadastrar" class="btn btn-primary btn_tela_inicial">Cadastrar Lista</a>
-                <a href="<%=caminho%>/index.jsp" class="btn btn_tela_inicial">Cancelar</a>
-            </p>
+            <div id="dv-cont-form">
+                <p>
+                    <input id="txtDescricao" name="txtDescricao" type="text" value="<%=descricao%>" placeholder="Descrição" />
+                </p>
+
+                <div id="status" class="<%=statusClass%>"><%=status%></div>
+                <p>
+                    <a id="btnAdicionarProdutos" class="btn btn-primary btn_tela_inicial">Adicionar produtos</a>
+                    <a id="btnCadastrar" class="btn btn-primary btn_tela_inicial">Cadastrar Lista</a>
+                    <a href="<%=caminho%>/index.jsp" class="btn btn_tela_inicial">Cancelar</a>
+                </p>
+            </div>
         </form>
         <div id="div-produtos">
-            <a href="#self" id="btnCancelaAdicaoProduto" class="btn btn_tela_inicial">Cancelar</a>
             <div id="lista-prods"></div>
+            <a href="#self" id="btnCancelaAdicaoProduto" class="btn btn_tela_inicial">Cancelar</a>
         </div>
         <div id="overlay">&nbsp;</div>
     </body>

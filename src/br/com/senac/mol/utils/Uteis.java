@@ -1,7 +1,8 @@
 package br.com.senac.mol.utils;
 
 import java.math.BigDecimal;
-import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -22,6 +23,12 @@ public class Uteis {
         String retorno = valor.toString();
         retorno = retorno.replaceAll("\\.", ",");
         return retorno;
+    }
+    
+    public static String formataData(Date data) {
+        SimpleDateFormat dt = new SimpleDateFormat("dd/mm/yyyy");
+        return dt.format(data);
+                
     }
     
 }
