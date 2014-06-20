@@ -108,27 +108,23 @@
             }
 
             .prod-lista {
-                border-color:#F71B59;
+                border-color:#1F2BAD;
                 border-style:solid;
-                border-width:0 2px 0 2px;
+                border-width:0 0 0 3px;
                 display:block;
                 margin:0 auto;
                 width:100%;
                 color:#2E2828;
                 clear:both;                
                 float:none;
-background: #9e9e9e; /* Old browsers */
-background: -moz-linear-gradient(top,  #9e9e9e 0%, #848484 50%, #777777 51%, #c6c6c6 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9e9e9e), color-stop(50%,#848484), color-stop(51%,#777777), color-stop(100%,#c6c6c6)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  #9e9e9e 0%,#848484 50%,#777777 51%,#c6c6c6 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  #9e9e9e 0%,#848484 50%,#777777 51%,#c6c6c6 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  #9e9e9e 0%,#848484 50%,#777777 51%,#c6c6c6 100%); /* IE10+ */
-background: linear-gradient(to bottom,  #9e9e9e 0%,#848484 50%,#777777 51%,#c6c6c6 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9e9e9e', endColorstr='#c6c6c6',GradientType=0 ); /* IE6-9 */
-
-
-
-
+                background: #c6c6c6; /* Old browsers */
+                background: -moz-linear-gradient(top,  #c6c6c6 0%, #919191 50%, #7f7f7f 51%, #c6c6c6 100%); /* FF3.6+ */
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c6c6c6), color-stop(50%,#919191), color-stop(51%,#7f7f7f), color-stop(100%,#c6c6c6)); /* Chrome,Safari4+ */
+                background: -webkit-linear-gradient(top,  #c6c6c6 0%,#919191 50%,#7f7f7f 51%,#c6c6c6 100%); /* Chrome10+,Safari5.1+ */
+                background: -o-linear-gradient(top,  #c6c6c6 0%,#919191 50%,#7f7f7f 51%,#c6c6c6 100%); /* Opera 11.10+ */
+                background: -ms-linear-gradient(top,  #c6c6c6 0%,#919191 50%,#7f7f7f 51%,#c6c6c6 100%); /* IE10+ */
+                background: linear-gradient(to bottom,  #c6c6c6 0%,#919191 50%,#7f7f7f 51%,#c6c6c6 100%); /* W3C */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c6c6c6', endColorstr='#c6c6c6',GradientType=0 ); /* IE6-9 */
             }
 
             .prod-lista:hover {
@@ -184,6 +180,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9e9e9e', end
                 font-size:10px;
                 display:inline-block;
                 margin-top:-5px;
+            }
+            
+            #overlay {
+                display:none;
+                background:url('img/bg-lista.png') repeat-y;
+                width:371px;
+                z-index:100;
+                height:100%;
+                position:fixed;
+                left:50%;
+                margin-left:-186px;
+                top:0;
             }
 
         </style>

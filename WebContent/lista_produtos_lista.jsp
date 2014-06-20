@@ -25,7 +25,7 @@
 </style>
 <% if(produtos!=null) { %>
     <% for(int i=0;i<produtos.size();i++){ %>
-    <a href="#self" class="prod-lista">
+    <a href="#self" class="prod-lista produto">
         <div class="lista-interna">
             <div class="prod-img">
                 <% if(produtos.get(i).getImagem()!=null) { %>
@@ -58,8 +58,18 @@
             </div>
         </div>
     </a>
-        
+    
     <% } %>
+    
+    
+    <script language="javascript">
+        $(function(){
+           $('.produto').click(function(){
+               alert( $(this).html() );
+           });
+        });
+    </script>
+    
 <% } else { %>
 
 <% } %>

@@ -1,114 +1,113 @@
 
 h1 {
-	display:block;
-	font-size:5em;
-	font-weight:900;
-	height:25px;
-	margin: 15% auto 0;
-	text-align: center;
-	width:175px;
+    display:block;
+    font-size:5em;
+    font-weight:900;
+    height:25px;
+    margin: 15% auto 0;
+    text-align: center;
+    width:175px;
+    text-shadow: 0 0 0.1em #FFF, 0 0 0.1em #FFF,0 0 0.2em #FFF
 }
 
 h2 {
-	display:block;
-	font-size:1em;
-	font-weight:900;
-	height:35px;
-	margin: 2% auto 0;
-	text-align: center;
-	width:280px;
-	background:#FFF;
+    display:block;
+    font-size:1.7em;
+    font-weight:900;
+    height:35px;
+    margin: 2% auto 0;
+    text-align: center;
+    width:280px;
 }
 
 form {
-	width:335px;
-	height:100%;
-        top:0;
-        bottom:0;
-	margin:0 auto;
-	left:-150px;
+    width:335px;
+    top:0;
+    bottom:0;
+    margin:0 auto;
+    left:-150px;
 }
 
 body {
-    background:url(../img/bg.jpg) repeat-y center;
+    background:url(../img/bg_super.jpg) repeat-y center fixed;
 }
 
 form strong {
-	color: #00F5FF;
-	font-weight:900;
+    color: #00F5FF;
+    font-weight:900;
 }
 
 form p {
-	display:block;
-	margin: 5% auto;
-	text-align: center;
-	width:210px;
+    display:block;
+    margin: 5% auto;
+    text-align: center;
+    width:210px;
 }
 
 form .link {
-	display:block;
-	height:40px;
-	margin: 5% auto 0;
-	text-align: center;
-	width:200px;
+    display:block;
+    height:40px;
+    margin: 5% auto 0;
+    text-align: center;
+    width:200px;
 }
 
- .btn_tela_inicial {
-	clear:both;
-	width:85%;
-	margin-bottom:10px;
- }
- 
- #usuario {
-	margin-bottom:20px;
- }
- 
- #div-produtos {
-	width:210px;
-	margin:0 auto;
-	height:190px;
- }
- 
- #div-botoes {
-	clear:both;
-	width:335px;
-	position:absolute;
-	bottom:40px;
-	text-align:center;
- }
- 
- div#status {
- 	position: relative;
- 	margin: -10px auto;
- 	top: -5px;
- 	width: 90%;
- 	font-size: 0.7em;
- 	font-weight: bold;
- 	/*height: 30px;*/
- 	text-align: center;
- 	/*background-color: red;*/
- }
- div#status.verde {
- 	color: #31D665;
- }
- div#status.vermelho {
- 	color: #D63131;
- }
- 
- .div-arq {
- 	display: none;
- }
- 
- 
- #txtResenha {
- 	height: auto;
- }
- 
- #list-imagem {
-     text-align:center;
- }
- 
- .btn-fechar {
-     
-     position:absolute;
- }
+.btn_tela_inicial {
+    clear:both;
+    width:85%;
+    margin-bottom:10px;
+}
+
+#usuario {
+    margin-bottom:20px;
+}
+
+#div-produtos {
+    width:210px;
+    margin:0 auto;
+    height:190px;
+}
+
+#div-botoes {
+    clear:both;
+    width:335px;
+    position:absolute;
+    bottom:40px;
+    text-align:center;
+}
+
+div#status {
+    position: relative;
+    margin: -10px auto;
+    top: -5px;
+    width: 90%;
+    font-size: 0.7em;
+    font-weight: bold;
+    /*height: 30px;*/
+    text-align: center;
+    /*background-color: red;*/
+}
+div#status.verde {
+    color: #31D665;
+}
+div#status.vermelho {
+    color: #D63131;
+}
+
+.div-arq {
+    display: none;
+}
+
+
+#txtResenha {
+    height: auto;
+}
+
+#list-imagem {
+    text-align:center;
+}
+
+.btn-fechar {
+
+    position:absolute;
+}
