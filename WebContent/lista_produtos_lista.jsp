@@ -57,7 +57,9 @@
 
             </div>
         </div>
+        <div class="divisor">&nbsp;</div>
     </a>
+    
     
     <% } %>
     
@@ -65,7 +67,9 @@
     <script language="javascript">
         $(function(){
            $('.produto').click(function(){
-               alert( $(this).html() );
+               $('#produtos_adicionados').append( '<div class="prod-lista">'+$(this).html()+'</div>' ).show();
+               //$(this).next().remove();
+               $(this).remove();
            });
         });
     </script>

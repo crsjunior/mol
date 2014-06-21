@@ -69,23 +69,35 @@
         <style type="text/css">
 
             #lista-prods {
-                margin:30px auto;
-                background:#F2F2F2;
-                border:1px solid #D4D4D4;
-                width:270px;
+                clear:both;
+                padding:6px;
+                background:#E3E3E3;
             }
 
-            #div-produtos {
+            #produtos_adicionados {
+                width:368px;
+                padding:4px;
+                display:none;
+                background:#E3E3E3;
+            }
+            
+            #div-produtos  {
                 top:0;
                 width:368px;
                 z-index:200;
-                display:none;
                 display:none;
                 height:100%;
                 bottom:0;
                 position:absolute;
                 padding-top:75px;
             }
+            
+            .detalhe {
+                width:100%;
+                padding:2px;
+                background:#E3E3E3;
+            }
+            
             #formCadastroLista {
                 z-index:-1;
             }
@@ -93,7 +105,7 @@
             #btnCancelaAdicaoProduto {
                 width:200px;
                 display:block !important;
-                margin:0 auto;
+                margin:20px auto;
             }
             #div-lista-prod {
                 margin:0 auto;
@@ -103,40 +115,16 @@
                 height:100%;
                 float:none;
                 clear:both;
-                border-bottom:1px solid #595959;
                 padding:6px 0;
             }
 
             .prod-lista {
-                border-color:#1F2BAD;
-                border-style:solid;
-                border-width:0 0 0 3px;
                 display:block;
                 margin:0 auto;
                 width:100%;
                 color:#2E2828;
                 clear:both;                
                 float:none;
-                background: #c6c6c6; /* Old browsers */
-                background: -moz-linear-gradient(top,  #c6c6c6 0%, #919191 50%, #7f7f7f 51%, #c6c6c6 100%); /* FF3.6+ */
-                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c6c6c6), color-stop(50%,#919191), color-stop(51%,#7f7f7f), color-stop(100%,#c6c6c6)); /* Chrome,Safari4+ */
-                background: -webkit-linear-gradient(top,  #c6c6c6 0%,#919191 50%,#7f7f7f 51%,#c6c6c6 100%); /* Chrome10+,Safari5.1+ */
-                background: -o-linear-gradient(top,  #c6c6c6 0%,#919191 50%,#7f7f7f 51%,#c6c6c6 100%); /* Opera 11.10+ */
-                background: -ms-linear-gradient(top,  #c6c6c6 0%,#919191 50%,#7f7f7f 51%,#c6c6c6 100%); /* IE10+ */
-                background: linear-gradient(to bottom,  #c6c6c6 0%,#919191 50%,#7f7f7f 51%,#c6c6c6 100%); /* W3C */
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c6c6c6', endColorstr='#c6c6c6',GradientType=0 ); /* IE6-9 */
-            }
-
-            .prod-lista:hover {
-                color:#fff;
-                background: #1b3d87; /* Old browsers */
-                background: -moz-linear-gradient(top,  #1b3d87 0%, #2989d8 50%, #207cca 51%, #409de5 100%); /* FF3.6+ */
-                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1b3d87), color-stop(50%,#2989d8), color-stop(51%,#207cca), color-stop(100%,#409de5)); /* Chrome,Safari4+ */
-                background: -webkit-linear-gradient(top,  #1b3d87 0%,#2989d8 50%,#207cca 51%,#409de5 100%); /* Chrome10+,Safari5.1+ */
-                background: -o-linear-gradient(top,  #1b3d87 0%,#2989d8 50%,#207cca 51%,#409de5 100%); /* Opera 11.10+ */
-                background: -ms-linear-gradient(top,  #1b3d87 0%,#2989d8 50%,#207cca 51%,#409de5 100%); /* IE10+ */
-                background: linear-gradient(to bottom,  #1b3d87 0%,#2989d8 50%,#207cca 51%,#409de5 100%); /* W3C */
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b3d87', endColorstr='#409de5',GradientType=0 ); /* IE6-9 */
             }
             
             .lista-interna:after {
@@ -155,12 +143,19 @@
 
             .prod-desc p {
                 line-height: 10px;
+                text-align:left;
             }
 
             .prod-desc {
                 padding:4px 10px 0 10px;
                 float:left;
 
+            }
+            
+            .divisor {
+                height:1px;
+                background:#F2F2F2;
+                border-bottom:1px solid #BFBFBF;
             }
 
             .p-preco {
@@ -209,6 +204,9 @@
                 </p>
 
                 <div id="status" class="<%=statusClass%>"><%=status%></div>
+                <div id="produtos_adicionados">
+                    
+                </div>
                 <p>
                     <a id="btnAdicionarProdutos" class="btn btn-primary btn_tela_inicial">Adicionar produtos</a>
                     <a id="btnCadastrar" class="btn btn-primary btn_tela_inicial">Cadastrar Lista</a>
@@ -217,8 +215,10 @@
             </div>
         </form>
         <div id="div-produtos">
-            <div id="lista-prods"></div>
-            <a href="#self" id="btnCancelaAdicaoProduto" class="btn btn_tela_inicial">Cancelar</a>
+            <div class="detalhe">
+                <div id="lista-prods"></div>
+                <a href="#self" id="btnCancelaAdicaoProduto" class="btn btn_tela_inicial">Cancelar</a>
+            </div>
         </div>
         <div id="overlay">&nbsp;</div>
     </body>
