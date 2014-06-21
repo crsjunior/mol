@@ -41,8 +41,7 @@ form strong {
 form p {
     display:block;
     margin: 5% auto;
-    text-align: center;
-    width:210px;
+    width:260px;
 }
 
 form .link {
@@ -111,4 +110,16 @@ div#status.vermelho {
 .btn-fechar {
 
     position:absolute;
+}
+
+input, select, textarea {
+    width:250px !important;
+}
+
+#estabelecimento {
+    width:262px !important;
+}
+
+.controles {
+    text-align:center;
 }

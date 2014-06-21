@@ -14,38 +14,36 @@ import br.com.senac.mol.models.MensagensSessao;
 import br.com.senac.mol.persistencia.UsuarioDAO;
 
 @WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet
-{
-	private static final long serialVersionUID = 1L;
+public class LoginServlet extends HttpServlet {
 
-	public LoginServlet()
-	{
-		super();
-	}
+    private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
-	}
+    public LoginServlet() {
+        super();
+    }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
-		String txtEmail = request.getParameter("txtEmail");
-		String txtSenha = request.getParameter("txtSenha");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    }
 
-		UsuarioDAO dao = new UsuarioDAO();
-		Usuario usuario = dao.getByEmailSenha(txtEmail, txtSenha);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String txtEmail = request.getParameter("txtEmail");
+        String txtSenha = request.getParameter("txtSenha");
 
-		HttpSession sessao = request.getSession();
-		MensagensSessao mensagens = new MensagensSessao();
-		sessao.setAttribute("mensagens", mensagens);
+        UsuarioDAO dao = new UsuarioDAO();
+        Usuario usuario = dao.getByEmailSenha(txtEmail, txtSenha);
 
-		if (usuario == null) {
-			mensagens.add("erro", "Email ou senha incorreto(s)");
-			mensagens.add("email", txtEmail);
-			response.sendRedirect(request.getContextPath() + "/login.jsp");
-		} else {
-			sessao.setAttribute("usuario", usuario);
-			response.sendRedirect(request.getContextPath() + "/index.jsp");
-		}
-	}
+        HttpSession sessao = request.getSession();
+        sessao.setMaxInactiveInterval(1800);
+        MensagensSessao mensagens = new MensagensSessao();
+        sessao.setAttribute("mensagens", mensagens);
+
+        if (usuario == null) {
+            mensagens.add("erro", "Email ou senha incorreto(s)");
+            mensagens.add("email", txtEmail);
+            response.sendRedirect(request.getContextPath() + "/login.jsp");
+        } else {
+            sessao.setAttribute("usuario", usuario);
+            response.sendRedirect(request.getContextPath() + "/index.jsp");
+        }
+    }
 }

@@ -32,6 +32,11 @@
     z-index:-1;
 }
 
+.dv-delete {
+    cursor:pointer;
+    display:none;
+}
+
 #btnCancelaAdicaoProduto {
     width:200px;
     display:block !important;
@@ -120,7 +125,10 @@
 }
 
 .cx-preco {
-    width:70px;
+    position:absolute;
+    margin-top:-55px;
+    margin-left:-120px;
+    width:70px !important;
 }
 
 .cx-hide {

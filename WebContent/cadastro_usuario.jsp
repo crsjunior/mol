@@ -53,7 +53,7 @@
 		<input autocomplete="off" id="txtSenhaConfirmaCad" name="txtSenhaConfirmaCad" type="password" value="" placeholder="Confirme a senha" />
 	</p>
 	<div id="status" style="text-align: center;"><%=status%></div>
-	<p>
+	<p class="controles">
 		<a id="btnSubmit" class="btn btn-primary btn_tela_inicial">Enviar</a><br />
 		<br />
 		<a href="<%=caminho%>/login.jsp" class="btn btn_tela_inicial">Cancelar</a>

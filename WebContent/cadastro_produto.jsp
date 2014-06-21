@@ -98,7 +98,7 @@
             </p>
             <div id="list-imagem"></div>
             <div id="status" class="<%=statusClass%>"><%=status%></div>
-            <p>
+            <p class="controles">
                 <a id="btnSubmit" class="btn btn-primary btn_tela_inicial">Salvar</a>
                 <a href="<%=caminho%>/index.jsp" class="btn btn_tela_inicial">Cancelar</a>
             </p>

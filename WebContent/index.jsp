@@ -16,7 +16,7 @@
 	// mensagens:
 	if (logoff) {
 		sessao.invalidate();
-		response.sendRedirect(caminho + "/login.jsp");
+		response.sendRedirect(caminho + "/login.jsp?a=logoff");
 		return;
 	}
 

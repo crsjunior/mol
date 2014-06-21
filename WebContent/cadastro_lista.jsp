@@ -38,6 +38,7 @@
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" />
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/lista.css" />
         <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/js/jMask.js"></script>
         <script type="text/javascript" src="<%=request.getContextPath()%>/js/lista.js"></script>
     </head>
 
@@ -63,7 +64,8 @@
                             
                         } else {
                             for(Estabelecimento estabs : estabelecimentos) {
-                                %><option value="<%=estabs.getId()%>"><%=estabs.getNome()%></option><%
+                                
+                                %><option value="<%=estabs.getId()%>"><%=estabs.getNome()+" - "+estabs.getEndereco().getEndereco()%></option><%
                             }
                         }
                         %>
@@ -74,7 +76,7 @@
                 <div id="produtos_adicionados">
                     
                 </div>
-                <p>
+                <p class="controles">
                     <a id="btnAdicionarProdutos" class="btn btn-primary btn_tela_inicial">Adicionar produtos</a>
                     <a id="btnCadastrar" class="btn btn-primary btn_tela_inicial">Cadastrar Lista</a>
                     <a href="<%=caminho%>/index.jsp" class="btn btn_tela_inicial">Cancelar</a>

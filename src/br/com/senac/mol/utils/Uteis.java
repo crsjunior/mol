@@ -26,8 +26,13 @@ public class Uteis {
     }
     
     public static String formataData(Date data) {
-        SimpleDateFormat dt = new SimpleDateFormat("dd/mm/yyyy");
-        return dt.format(data);
+        String retorno = "";
+        SimpleDateFormat dt = new SimpleDateFormat("d/M/y");
+        String[] txt_dt = dt.format(data).split("/");
+        txt_dt[0] = Integer.valueOf(txt_dt[0])<9?"0"+txt_dt[0]:txt_dt[0];
+        txt_dt[1] = Integer.valueOf(txt_dt[1])<9?"0"+txt_dt[1]:txt_dt[1];
+        retorno = txt_dt[0]+"/"+txt_dt[1]+"/"+txt_dt[2];
+        return retorno;
                 
     }
     

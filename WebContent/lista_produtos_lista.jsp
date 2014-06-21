@@ -21,7 +21,7 @@
 
 %>
 <p>
-    <input type="text" name="buscar" id="buscar" value="<%=buscar%>" placeholder="Pesquisar" />
+    <input type="text" name="buscar" style="width:336px !important;" id="buscar" value="<%=buscar%>" placeholder="Pesquisar" />
     <a href="#self" id="btn-pesquisar"><img src="img/img-pesquisar.png" /></a>
 </p>
 <% if(produtos!=null) { %>
@@ -50,8 +50,9 @@
                 </div>
 
                 <div class="p-preco">
-                    <input type="text" name="preco" class="cx-preco cx-hide" value="" placeholder="Preço" size="6" />
+                    <input type="text" data-tipo="dinheiro" name="preco" class="cx-preco cx-hide" value="" placeholder="Preço" size="6" />
                 </div>
+                <div class="dv-delete"><img src="img/icon-delete.png" /></div>
 
             </div>
             <div class="divisor">&nbsp;</div>
@@ -66,7 +67,6 @@
            $('.produto').click(function(){
                var id = 'prod_'+Math.ceil(Math.random()*100);
                var nObj = $('#produtos_adicionados').append('<div id="'+id+'" class="prod-lista">'+$(this).html()+'</div>').show();
-               $('#'+id+' .cx-preco').show().after('<div class="dv-delete"><a href="#self"><img src="img/icon-delete.png" /></a></div>');
                $('#'+id+' .cx-preco').removeClass('cx-hide');
                $(this).remove();
                if($('.produto').length==0) {

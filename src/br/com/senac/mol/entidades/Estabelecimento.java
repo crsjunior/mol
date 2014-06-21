@@ -26,8 +26,8 @@ public class Estabelecimento
 	private String nome;
 
 	@OneToOne
-	@JoinColumn(name = "id_localizacao")
-	private Localizacao endereco;
+	@JoinColumn(name = "id")
+	private Endereco endereco;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "data_cadastro")
@@ -63,12 +63,12 @@ public class Estabelecimento
 		this.dataCadastro = dataCadastro;
 	}
 
-	public Localizacao getEndereco()
+	public Endereco getEndereco()
 	{
 		return endereco;
 	}
 
-	public void setEndereco(Localizacao endereco)
+	public void setEndereco(Endereco endereco)
 	{
 		this.endereco = endereco;
 	}
