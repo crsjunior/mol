@@ -75,16 +75,18 @@ public class ProdutoDAO extends DAO
 		return produto;
 	}
         
-        public List<Produto> getProdutosByName(String descricao) {
+        public List<Produto> getProdutosByName(String descricao, String ids) {
             
             EntityManager em = getEntityManager();
-            String sql = "";
-            if(descricao!=null) {
-                sql = "SELECT a FROM Produto a WHERE a.descricao LIKE '%"+descricao+"%' ORDER BY a.id DESC";
-            }else{
-                sql = "SELECT a FROM Produto a ORDER BY a.id DESC";
-            }
             
+            String sqlNoIds = ids.isEmpty()?"":" AND a.id NOT IN ("+ids+")";
+            String sql = "";
+            if(descricao.isEmpty()) {
+                sql = "SELECT a FROM Produto a WHERE 1 = 1 "+sqlNoIds+" ORDER BY a.id DESC";
+            }else{
+                sql = "SELECT a FROM Produto a WHERE lower(a.descricao) LIKE lower('%"+descricao+"%') "+sqlNoIds+" ORDER BY a.id DESC";
+            }
+            System.out.println("SQL: "+sql);
             Query query = em.createQuery(sql);
             query.setMaxResults(20);
             
