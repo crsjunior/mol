@@ -15,8 +15,6 @@
         
         ProdutoDAO dao = new ProdutoDAO();
         List<Produto> produtos = dao.getProdutosByName(null);
-        
-        
 
 %>
 <style type="text/css">
@@ -46,30 +44,26 @@
                 <p><%=Uteis.formataData(produtos.get(i).getDataCadastro())%></p>
                 <input type="hidden" name="id" value="<%=produtos.get(i).getId().toString()%>" />
             </div>
-            <div class="p-preco"><%
-
-            String preco = Uteis.formataCurrency(produtos.get(i).getPreco());
-            String centavos = preco.substring(preco.indexOf(","));
-            preco = preco.replace(centavos,"");
-            out.print("<div class=\"sp-preco\">"+preco+"</div><div class=\"sp-centavos\">"+centavos+"</div>");
-
-            %>
-
+            
+            <div class="p-preco">
+                <input type="preco" class="cx-preco" value="" placeholder="Preço" size="6" />
             </div>
+            
         </div>
         <div class="divisor">&nbsp;</div>
     </a>
-    
-    
     <% } %>
-    
     
     <script language="javascript">
         $(function(){
            $('.produto').click(function(){
-               $('#produtos_adicionados').append( '<div class="prod-lista">'+$(this).html()+'</div>' ).show();
-               //$(this).next().remove();
+               var id = 'prod_'+Math.ceil(Math.random()*100);
+               var nObj = $('#produtos_adicionados').append('<div id="'+id+'" class="prod-lista">'+$(this).html()+'</div>').show();
+               $('#'+id+' .cx-preco').show().after('<div class="dv-delete"><a href="#self"><img src="img/icon-delete.png" /></a></div>');
                $(this).remove();
+               if($('.produto').length==0) {
+                   cancelar();
+               }
            });
         });
     </script>

@@ -118,3 +118,8 @@
     margin-left:-186px;
     top:0;
 }
+
+.cx-preco {
+    width:70px;
+    display:none;
+}

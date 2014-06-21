@@ -23,10 +23,17 @@ $(function()
     });
 
     $('#btnCancelaAdicaoProduto').click(function() {
-        //$('#overlay').fadeOut('fast');
-        $('#div-produtos').fadeOut('fast');
-        $('#dv-cont-form').fadeIn('fast');
+        cancelar();       
     });
 
 });
+
+function cancelar() {
+    $('#div-produtos').fadeOut('fast');
+    $('#dv-cont-form').fadeIn('fast');
+    $('.dv-delete').unbind('click');
+    $('.dv-delete').click(function(){
+       alert($(this).parent().html()); 
+    });
+}
 

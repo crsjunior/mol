@@ -18,6 +18,7 @@ h2 {
     margin: 2% auto 0;
     text-align: center;
     width:280px;
+    text-shadow: 0 0 0.1em #FFF, 0 0 0.1em #FFF,0 0 0.2em #FFF
 }
 
 form {
