@@ -1,0 +1,120 @@
+#lista-prods {
+    clear:both;
+    padding:6px;
+    background:#E3E3E3;
+}
+
+#produtos_adicionados {
+    width:368px;
+    padding:4px;
+    display:none;
+    background:#E3E3E3;
+}
+
+#div-produtos  {
+    top:0;
+    width:368px;
+    z-index:200;
+    display:none;
+    height:100%;
+    bottom:0;
+    position:absolute;
+    padding-top:75px;
+}
+
+.detalhe {
+    width:100%;
+    padding:2px;
+    background:#E3E3E3;
+}
+
+#formCadastroLista {
+    z-index:-1;
+}
+
+#btnCancelaAdicaoProduto {
+    width:200px;
+    display:block !important;
+    margin:20px auto;
+}
+#div-lista-prod {
+    margin:0 auto;
+}
+
+.lista-interna {
+    height:100%;
+    float:none;
+    clear:both;
+    padding:6px 0;
+}
+
+.prod-lista {
+    display:block;
+    margin:0 auto;
+    width:100%;
+    color:#2E2828;
+    clear:both;                
+    float:none;
+}
+
+.lista-interna:after {
+    content: " ";
+    display: block; 
+    height: 0; 
+    clear: both;
+}
+
+.prod-img {
+    float:left;
+    line-height: 100%;
+    height:100%;
+    padding:2px 4px;
+}
+
+.prod-desc p {
+    line-height: 10px;
+    text-align:left;
+}
+
+.prod-desc {
+    padding:4px 10px 0 10px;
+    float:left;
+
+}
+
+.divisor {
+    height:1px;
+    background:#F2F2F2;
+    border-bottom:1px solid #BFBFBF;
+}
+
+.p-preco {
+    margin-right:20px;
+    text-align:right;
+    float:right;
+    width:65px;
+}
+
+.sp-preco {
+    font-size:26px;
+    display:inline-block;
+}
+
+.sp-centavos {
+    position:absolute;
+    font-size:10px;
+    display:inline-block;
+    margin-top:-5px;
+}
+
+#overlay {
+    display:none;
+    background:url('img/bg-lista.png') repeat-y;
+    width:371px;
+    z-index:100;
+    height:100%;
+    position:fixed;
+    left:50%;
+    margin-left:-186px;
+    top:0;
+}
